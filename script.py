@@ -6,7 +6,6 @@ from mcstatus import JavaServer
 from colorama import init, Fore, Style
 import socket
 
-# Init Colorama
 init(autoreset=True)
 
 class Couleurs:
@@ -187,10 +186,8 @@ def lancer_scan(ips, sauvegarder_attente=True, purge_servers_txt=False):
     else:
         print("Aucun serveur actif détecté.")
 
-    # Mise à jour scan.txt
     ecrire_scan_file(serveurs_en_ligne)
 
-    # PURGE de servers.txt si demandé (option 3)
     if purge_servers_txt:
         ips_valides_et_attente = set(serveurs_en_attente)
         ips_valides_et_attente.update([srv["ip"] for srv in serveurs_en_ligne])
